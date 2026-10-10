@@ -1,0 +1,474 @@
+/* ==========================================================
+   TORA · Despacho Jurídico e Inmobiliario — Sucursal Querétaro
+   Paleta corporativa (manual de identidad 2026)
+   ========================================================== */
+:root {
+  --burdeos:  #7A1E1A;  /* Titulares · CTA · acento Derecho Familiar */
+  --azul:     #1F3A5F;  /* Acento Civil · franjas corporativas */
+  --verde:    #1E6B3C;  /* Identidad · franja tricolor */
+  --dorado:   #B08D3E;  /* Filetes · divisores · viñetas */
+  --carbon:   #2B2B2B;  /* Textos principales · franjas de autoridad */
+  --marfil:   #F7F5F0;  /* Fondos */
+  --blanco:   #FFFFFF;
+
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:  'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+
+  --shadow-card: 0 10px 30px rgba(43, 43, 43, .10);
+  --shadow-frame: 0 14px 40px rgba(43, 43, 43, .18);
+  --radius: 4px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  color: var(--carbon);
+  background: var(--marfil);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ---------- Franja tricolor (firma) ---------- */
+.tricolor {
+  display: flex;
+  height: 10px;
+  width: 100%;
+}
+.tricolor span { flex: 1; }
+.tricolor__azul    { background: var(--azul); }
+.tricolor__burdeos { background: var(--burdeos); }
+.tricolor__verde   { background: var(--verde); }
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247, 245, 240, .96);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--dorado);
+  transition: box-shadow .3s ease;
+}
+.header--scrolled { box-shadow: 0 6px 20px rgba(43,43,43,.12); }
+
+.header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header__logo {
+  height: 56px;
+  width: auto;
+  background: var(--blanco);
+  padding: 4px 10px;
+  border: 1px solid var(--dorado);
+  border-radius: var(--radius);
+}
+
+.nav { display: flex; align-items: center; gap: 28px; }
+
+.nav__link {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--carbon);
+  padding: 8px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .25s, border-color .25s;
+}
+.nav__link:hover, .nav__link:focus-visible {
+  color: var(--burdeos);
+  border-bottom-color: var(--dorado);
+}
+
+.nav__link--cta {
+  background: var(--burdeos);
+  color: var(--blanco);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border-bottom: none;
+}
+.nav__link--cta:hover, .nav__link--cta:focus-visible {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+/* Botón hamburguesa (solo móvil) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid var(--dorado);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 10px;
+}
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--burdeos);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: clamp(48px, 8vw, 96px) 24px clamp(56px, 9vw, 110px);
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(176,141,62,.10), transparent 60%),
+    var(--marfil);
+}
+
+.hero__inner { max-width: 880px; margin: 0 auto; }
+
+.hero__logo-frame {
+  display: inline-block;
+  background: var(--blanco);
+  border: 2px solid var(--dorado);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-frame);
+  padding: clamp(14px, 3vw, 28px) clamp(20px, 4vw, 40px);
+  margin-bottom: clamp(28px, 5vw, 48px);
+}
+.hero__logo-frame img { max-width: min(420px, 78vw); margin: 0 auto; }
+
+.hero__title {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.hero__title-line1 {
+  display: block;
+  color: var(--burdeos);
+  font-size: clamp(2rem, 5.4vw, 3.6rem);
+}
+.hero__title-line2 {
+  display: block;
+  color: var(--carbon);
+  font-size: clamp(1.7rem, 4.6vw, 3rem);
+}
+
+.hero__subtitle {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: #5c554b;
+  margin-top: 18px;
+}
+
+.hero__actions {
+  margin-top: clamp(28px, 4vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* ---------- Divisor dorado ---------- */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto 0;
+  max-width: 320px;
+}
+.divider span { flex: 1; height: 2px; background: var(--dorado); }
+.divider i { color: var(--dorado); font-style: normal; font-size: .8rem; }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;              /* objetivo táctil >= 44px */
+  padding: 14px 30px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .2s, background .25s, color .25s, border-color .25s, box-shadow .25s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(43,43,43,.18); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary { background: var(--burdeos); color: var(--blanco); }
+.btn--primary:hover { background: #8f2721; }
+
+.btn--ghost { border-color: var(--dorado); color: var(--carbon); background: transparent; }
+.btn--ghost:hover { background: rgba(176,141,62,.12); }
+
+.btn--whatsapp {
+  background: var(--verde);
+  color: var(--blanco);
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: .02em;
+}
+.btn--whatsapp:hover { background: #258548; }
+
+/* ---------- Secciones genéricas ---------- */
+.section-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--carbon);
+}
+
+/* ---------- Servicios ---------- */
+.servicios { padding: clamp(56px, 9vw, 100px) 0; }
+
+.servicios__grid {
+  margin-top: clamp(32px, 5vw, 52px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3.5vw, 36px);
+}
+
+.card {
+  background: var(--blanco);
+  border: 1px solid var(--dorado);
+  border-top: 6px solid var(--burdeos);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: clamp(24px, 4vw, 40px);
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(43,43,43,.16); }
+
+.card--civil { border-top-color: var(--azul); }
+
+.card__title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--burdeos);
+  margin-bottom: 20px;
+}
+.card--civil .card__title { color: var(--azul); }
+
+.card__list { list-style: none; }
+.card__list li {
+  position: relative;
+  padding: 9px 0 9px 26px;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  border-bottom: 1px solid rgba(176,141,62,.25);
+}
+.card__list li:last-child { border-bottom: none; }
+.card__list li::before {
+  content: "◆";
+  position: absolute;
+  left: 2px;
+  color: var(--dorado);
+  font-size: .7rem;
+  top: 14px;
+}
+
+.servicios__areas {
+  margin-top: clamp(32px, 5vw, 48px);
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  letter-spacing: .1em;
+  color: var(--dorado);
+}
+
+/* ---------- Banda de autoridad ---------- */
+.banda-autoridad {
+  background: var(--carbon);
+  border-top: 3px solid var(--dorado);
+  border-bottom: 3px solid var(--dorado);
+  padding: clamp(20px, 3.5vw, 30px) 24px;
+  text-align: center;
+}
+.banda-autoridad p {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 3vw, 1.7rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--marfil);
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  background:
+    linear-gradient(rgba(122,30,26,.96), rgba(122,30,26,.96)),
+    var(--burdeos);
+  padding: clamp(56px, 9vw, 96px) 24px;
+  text-align: center;
+  color: var(--blanco);
+}
+
+.cta__title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.cta__subtitle {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+  color: #e9d9c6;
+  margin-top: 10px;
+}
+
+.cta__phones {
+  margin-top: clamp(24px, 4vw, 36px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 20px;
+}
+.cta__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4.5vw, 2.3rem);
+  letter-spacing: .03em;
+  padding: 6px 4px;
+  transition: color .25s;
+}
+.cta__phone:hover { color: #f3d9a4; }
+.cta__phone-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--verde);
+  border-radius: 50%;
+  color: var(--blanco);
+  flex-shrink: 0;
+}
+.cta__dot { color: var(--dorado); font-size: 2rem; }
+
+.cta .btn--whatsapp { margin-top: clamp(28px, 4vw, 40px); }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--carbon);
+  color: var(--marfil);
+  text-align: center;
+  padding: clamp(32px, 5vw, 48px) 24px calc(clamp(32px, 5vw, 48px) + env(safe-area-inset-bottom));
+}
+.footer__brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; letter-spacing: .05em; }
+.footer__areas { color: var(--dorado); margin-top: 8px; letter-spacing: .06em; }
+.footer__copy  { margin-top: 16px; font-size: .85rem; color: #9b968c; }
+
+/* ---------- Botón flotante WhatsApp ---------- */
+.whatsapp-float {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--verde);
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(30,107,60,.45);
+  transition: transform .2s, background .25s;
+}
+.whatsapp-float:hover { transform: scale(1.08); background: #258548; }
+
+/* ---------- Animaciones de aparición ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal--visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .card, .whatsapp-float { transition: none; }
+}
+
+/* ==========================================================
+   Responsive — móvil (375–430px) y tablet
+   ========================================================== */
+@media (max-width: 860px) {
+  .nav-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--marfil);
+    border-bottom: 2px solid var(--dorado);
+    box-shadow: 0 14px 28px rgba(43,43,43,.14);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .nav--open { max-height: 340px; }
+
+  .nav__link {
+    padding: 16px 24px;          /* objetivo táctil >= 44px */
+    border-bottom: 1px solid rgba(176,141,62,.25);
+    text-align: center;
+  }
+  .nav__link--cta {
+    margin: 12px 24px 18px;
+    text-align: center;
+  }
+
+  .servicios__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .header__logo { height: 46px; }
+  .cta__dot { display: none; }
+  .cta__phones { flex-direction: column; gap: 6px; }
+  .hero__actions .btn { width: 100%; }
+}
